@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "946322970985",
+    "project_id": "kursach-5551",
+    "storage_bucket": "kursach-5551.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:946322970985:android:9300854b9fafddb20d05f8",
+        "android_client_info": {
+          "package_name": "com.example.kursach2"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDy2EXkry93xLt5ViikGB-7YRXDlHBUZd4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
