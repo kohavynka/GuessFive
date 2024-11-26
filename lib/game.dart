@@ -118,7 +118,7 @@ class _WordGuessingGameState extends State<WordGuessingGame> {
 
   // Підтверджуємо пакетне записування в Firestore
     await batch.commit();
-    print('Статистика успешно обновлена!');
+    print('Статистика успішно оновлена!');
   }
 
 //завантажити словник
@@ -212,8 +212,6 @@ class _WordGuessingGameState extends State<WordGuessingGame> {
       overlayEntry.remove();
     });
   }
-
-
 
 //зелені жовті квадратики (та перевірка на виграш)
   void _checkWord(String inputWord) {

@@ -37,13 +37,36 @@ android {
         targetSdk = flutter.targetSdkVersion
         versionCode = flutter.versionCode
         versionName = flutter.versionName
+
+        ndk {
+            abiFilters "armeabi-v7a", "arm64-v8a", "x86", "x86_64"
+        }
+    }
+
+    def keystorePropertiesFile = rootProject.file("key.properties")
+    def keystoreProperties = new Properties()
+    if (keystorePropertiesFile.exists()) {
+        keystoreProperties.load(new FileInputStream(keystorePropertiesFile))
+    }
+
+
+    signingConfigs {
+        release {
+            keyAlias keystoreProperties['keyAlias'] // Псевдонім ключа
+            keyPassword keystoreProperties['keyPassword'] // Пароль ключа
+            storeFile file(keystoreProperties['storeFile']) // Файл keystore
+            storePassword keystoreProperties['storePassword'] // Пароль keystore
+        }
     }
 
     buildTypes {
         release {
-            // TODO: Add your own signing config for the release build.
-            // Signing with the debug keys for now, so `flutter run --release` works.
+            signingConfig signingConfigs.release // Використання конфігурації підписування для релізу
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
             signingConfig = signingConfigs.debug
+        }
+        debug {
+            debuggable true // Увімкнення режиму дебагу
         }
     }
 }
