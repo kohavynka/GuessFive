@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
 
-// Сторінка входу
+
 class LoginPage extends StatefulWidget {
   @override
   _LoginPageState createState() => _LoginPageState();
@@ -27,7 +27,6 @@ class _LoginPageState extends State<LoginPage> {
         _message = 'Вхід успішний!';
       });
 
-      // Перенаправлення на головний екран
       Navigator.pushReplacement(
         context,
         MaterialPageRoute(builder: (context) => MainGameScreen()),
@@ -35,7 +34,7 @@ class _LoginPageState extends State<LoginPage> {
     } on FirebaseAuthException catch (e) {
       setState(() {
         _message = _getErrorMessage(
-            e.code); // Виклик методу з кастомними повідомленнями
+            e.code); 
       });
     } catch (e) {
       setState(() {
@@ -44,7 +43,7 @@ class _LoginPageState extends State<LoginPage> {
     }
   }
 
-  // Метод для отримання кастомного тексту помилок
+  
   String _getErrorMessage(String errorCode) {
     switch (errorCode) {
       case 'invalid-email':
@@ -66,7 +65,7 @@ class _LoginPageState extends State<LoginPage> {
       appBar: AppBar(
         backgroundColor: Color(0xFFDDD7E8),
       ),
-      backgroundColor: Color(0xFFDDD7E8), // Задаємо колір фону тут
+      backgroundColor: Color(0xFFDDD7E8), 
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Center(
@@ -74,24 +73,24 @@ class _LoginPageState extends State<LoginPage> {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                // Великий текст "Вхід"
+                
                 Padding(
-                  padding: const EdgeInsets.only(bottom: 60), // Відступ 60
+                  padding: const EdgeInsets.only(bottom: 60),
                   child: Text(
                     'Вхід',
                     style: TextStyle(
-                      fontSize: 42, // Розмір шрифту
-                      fontWeight: FontWeight.bold, // Жирний текст
+                      fontSize: 42, 
+                      fontWeight: FontWeight.bold,
                       color: Color(0xFF6750A3),
                     ),
                   ),
                 ),
-                // Поле для електронної пошти
+                
                 Container(
-                  width: MediaQuery.of(context).size.width / 2, // Ширина вдвічі менша
+                  width: MediaQuery.of(context).size.width / 2,
                   child: GestureDetector(
                     onTap: () {
-                      FocusScope.of(context).requestFocus(FocusNode()); // Показує клавіатуру
+                      FocusScope.of(context).requestFocus(FocusNode());  
                     },
                     child: TextField(
                       controller: _emailController,
@@ -100,9 +99,9 @@ class _LoginPageState extends State<LoginPage> {
                   ),
                 ),
                 SizedBox(height: 20),
-                // Поле для пароля
+                
                 Container(
-                  width: MediaQuery.of(context).size.width / 2, // Ширина вдвічі менша
+                  width: MediaQuery.of(context).size.width / 2, 
                   child: TextField(
                     controller: _passwordController,
                     decoration: InputDecoration(labelText: 'Пароль'),
@@ -110,11 +109,11 @@ class _LoginPageState extends State<LoginPage> {
                   ),
                 ),
                 SizedBox(height: 20),
-                // Кнопка для входу
+                
                 ElevatedButton(
                   onPressed: _login,
                   style: ElevatedButton.styleFrom(
-                    backgroundColor: Color(0xFFEFECF4), // Колір фону кнопки
+                    backgroundColor: Color(0xFFEFECF4), 
                   ),
                   child: Text('Увійти'),
                 ),
@@ -129,7 +128,7 @@ class _LoginPageState extends State<LoginPage> {
                   child: Text('Забули пароль?'),
                 ),
                 SizedBox(height: 0),
-                // Текст для реєстрації (вищий)
+              
                 TextButton(
                   onPressed: () {
                     Navigator.push(
@@ -139,8 +138,8 @@ class _LoginPageState extends State<LoginPage> {
                   },
                   child: Text('Немає акаунта? Реєструйтесь'),
                 ),
-                SizedBox(height: 15), // Відступ під текстом реєстрації
-                // Текст валідації (нижче)
+                SizedBox(height: 15), 
+                
                 Text(_message, style: TextStyle(color: Colors.red)),
               ],
             ),
