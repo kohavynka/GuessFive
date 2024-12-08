@@ -5,13 +5,13 @@ import 'package:flutter/material.dart';
 import 'login.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
-// Головний екран гри
+
 class MainGameScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
     return WillPopScope(
-      onWillPop: () async => false, // Блокуємо можливість повернення назад
+      onWillPop: () async => false, 
       child: Scaffold(
         body: Center(
           child: Column(
@@ -21,26 +21,26 @@ class MainGameScreen extends StatelessWidget {
                 height: 400,
                 width: 400,
                 decoration: BoxDecoration(
-                  color: Colors.white, // Фон контейнера
-                  borderRadius: BorderRadius.circular(15), // Заокруглення
+                  color: Colors.white, 
+                  borderRadius: BorderRadius.circular(15), 
                 ),
                 child: ClipRRect(
-                  borderRadius: BorderRadius.circular(15), // Заокруглення для зображення
+                  borderRadius: BorderRadius.circular(15), 
                   child: Image.asset(
-                    'assets/logo.png', // Шлях до фото
-                    fit: BoxFit.cover, // Масштабування зображення
+                    'assets/logo.png', 
+                    fit: BoxFit.cover, 
                   ),
                 ),
               ),
-              // Прибираємо SizedBox для відступу
+              
               ElevatedButton(
                 style: ElevatedButton.styleFrom(
-                  backgroundColor: Color(0xFFDDD7E8), // Колір кнопки
-                  padding: EdgeInsets.symmetric(vertical: 15), // Збільшуємо розмір кнопки
-                  minimumSize: Size(300, 50), // Фіксована ширина і висота
-                  textStyle: TextStyle(fontSize: 22, fontWeight: FontWeight.bold), // Збільшуємо текст і робимо його жирним
+                  backgroundColor: Color(0xFFDDD7E8), 
+                  padding: EdgeInsets.symmetric(vertical: 15), 
+                  minimumSize: Size(300, 50), 
+                  textStyle: TextStyle(fontSize: 22, fontWeight: FontWeight.bold), 
                   shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(10), // Менше заокруглення
+                    borderRadius: BorderRadius.circular(10), 
                   ),
                 ),
                   onPressed: () {
@@ -54,7 +54,7 @@ class MainGameScreen extends StatelessWidget {
                   },
                 child: Text('Почати гру'),
               ),
-              SizedBox(height: 40), // Збільшений відступ між кнопками
+              SizedBox(height: 40), 
               ElevatedButton(
                 style: ElevatedButton.styleFrom(
                   backgroundColor: Color(0xFFDDD7E8),
